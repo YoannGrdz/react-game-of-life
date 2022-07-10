@@ -1,6 +1,6 @@
 # REACT-GAME-OF-LIFE
 
-## About the gema of life, rules of the game
+## About the game of life, rules of the game
 
 ### Origins
 
