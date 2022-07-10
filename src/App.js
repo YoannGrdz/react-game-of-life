@@ -1,3 +1,6 @@
+// The App component is the top parent component of the app.
+// This is where all the states are declared and saved, as well as all of the functions.
+
 import React from 'react';
 import './App.css';
 import Grid from "./components/Grid.js";

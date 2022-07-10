@@ -1,3 +1,5 @@
+// This is where the render method is used to insert everything required in the html template.
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
