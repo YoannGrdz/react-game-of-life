@@ -8,6 +8,7 @@ export default function GameRun(props){
     const setGridState = props.setGridState;
     const size = props.size;
     const setPlaying = props.setPlaying;
+    const setIterations = props.setIterations
 
 
     // generating 2d array that will then be used as the reset state (similar to base state initalized in "App.js")
@@ -25,6 +26,7 @@ export default function GameRun(props){
 
     function reset(){
         setGridState(squares);
+        setIterations(0);
     }
 
     // switches the game on and off

@@ -1,10 +1,13 @@
 body {
   height: 100vh;
   margin: 0;
-  display: grid;
-  place-items: center;
   box-sizing: border-box;
   background-color: hsl(0, 0%, 20%);
+}
+
+.App{
+  display: flex;
+  justify-content: space-evenly;
 }
 
 /* note : the number of grid rows and columns is dynamically managed in the Grid component */
@@ -19,7 +22,7 @@ body {
 /* note : the background color of each cell is dynamically managed by the Cell components themselves and depend on the gridState */
 .cell {
   font-size: 3px;
-  border: 1px solid black;
+  border: 1px solid white;
   margin: 0px;
   padding: 0.5em;
   width: 17px;
@@ -43,4 +46,20 @@ body {
 
 .play--button:hover {
   background-color: blueviolet;
+}
+
+.display{
+  text-align: center;
+  font-size: 2em;
+  color: white;
+  background-color: hsl(0, 75%, 50%);
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  border-radius: 0.3em;
+  width: 20%;
+  height: 30%;
+  margin: 1em;
+  border: 1px solid white;
 }

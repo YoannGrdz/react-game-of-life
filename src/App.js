@@ -30,6 +30,8 @@ function App() {
   // playing state, used to determine whether the game is playing or on pause.
   const [playing, setPlaying] = React.useState(false);
 
+  // iterations state, shows how many iterations the game has run
+  const [iterations, setIterations] = React.useState(0);
 
   // toggle function which will toggle on and off cells when clicked
   function toggle(id) {
@@ -126,6 +128,7 @@ function App() {
     if(playing){
       interval = setInterval(() => {
         play();
+        setIterations(previous => previous + 1);
       }, 500)
     }
 
@@ -141,9 +144,11 @@ function App() {
 
   return (
     <div className="App">
-      <Grid size={size} gridState={gridState} toggle={toggle}/>
-      <GameRun playing={playing} setPlaying={setPlaying} setGridState={setGridState} size={size} />
-      <Display playing={playing} />
+      <div className='grid--and--controls'>
+        <Grid size={size} gridState={gridState} toggle={toggle}/>
+        <GameRun playing={playing} setPlaying={setPlaying} setGridState={setGridState} setIterations={setIterations} size={size} />
+      </div>
+      <Display playing={playing} iterations={iterations} />
     </div>
   );
 }
