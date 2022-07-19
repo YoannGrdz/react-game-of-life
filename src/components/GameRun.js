@@ -1,16 +1,43 @@
 // This component controls the button which starts the game.
 // The "play" function starts the iterations.
-// to do : make the button toggleable, and modify the function so that
-// it iterate continuously untill toggled again or untill a certain number of iterations is reached.
 
 import React from "react";
 
 export default function GameRun(props){
+
+    const setGridState = props.setGridState;
+    const size = props.size;
+    const setPlaying = props.setPlaying;
+
+
+    // generating 2d array that will then be used as the reset state (similar to base state initalized in "App.js")
+    const squares = [];
+    let idCount = 0;
+    for (let i = size; i > 0; i--) {
+    let newArr = [];
+    for (let j = 1; j < size + 1; j++) {
+        idCount++;
+        // let id = Number(String(j) + String(i));
+        newArr.push({ id: idCount, x: j, y: i, on: false });
+    }
+    squares.push(newArr);
+    }
+
+    function reset(){
+        setGridState(squares);
+    }
+
+    // switches the game on and off
+    function run(){
+        setPlaying(previous => !previous);
+      }
+
     return(
         <div className="play--div">
-            <button onClick={props.run} id="play--button">
+            <button onClick={run} className="play--button">
             {props.playing ? "stop" : "play"}
             </button>
+            <button onClick={() => {setPlaying(false); reset()}} className="play--button">reset</button>
         </div>
     );
 }

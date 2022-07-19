@@ -118,10 +118,7 @@ function App() {
   }
 
 
-  function run(){
-    setPlaying(previous => !previous);
-  }
-
+  // the useEffect hook is called everytime the "playing" state is updated (see dependency array) 
   useEffect(() => {
 
     let interval = null;
@@ -138,14 +135,14 @@ function App() {
 
     return () => clearInterval(interval)
 
-  }, [playing])
+  }, [playing]) // the dependency array dictates what variables trigger the useEffect hook to fire when they are updated, in this case, it's "playing"
 
 
 
   return (
     <div className="App">
       <Grid size={size} gridState={gridState} toggle={toggle}/>
-      <GameRun playing={playing} run={run}/>
+      <GameRun playing={playing} setPlaying={setPlaying} setGridState={setGridState} size={size} />
       <Display playing={playing} />
     </div>
   );
