@@ -1,10 +1,11 @@
 // The App component is the top parent component of the app.
 // This is where all the states are declared and saved, as well as all of the functions.
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import Grid from "./components/Grid.js";
 import GameRun from "./components/GameRun.js";
+import Display from './components/Display';
 
 function App() {
 
@@ -26,6 +27,9 @@ function App() {
   // grid state initialized with the 2d array created above
   const [gridState, setGridState] = React.useState(squares);
 
+  // playing state, used to determine whether the game is playing or on pause.
+  const [playing, setPlaying] = React.useState(false);
+
 
   // toggle function which will toggle on and off cells when clicked
   function toggle(id) {
@@ -43,7 +47,7 @@ function App() {
       // switching the square which was clicked based on its id.
       for (let i = 0; i < newState.length; i++) {
         for (let j = 0; j < newState[i].length; j++) {
-          if (newState[i][j].id == id) {
+          if (newState[i][j].id === id) {
             newState[i][j].on = !newState[i][j].on;
           }
         }
@@ -114,11 +118,35 @@ function App() {
   }
 
 
+  function run(){
+    setPlaying(previous => !previous);
+  }
+
+  useEffect(() => {
+
+    let interval = null;
+
+    if(playing){
+      interval = setInterval(() => {
+        play();
+      }, 500)
+    }
+
+    else{
+      clearInterval(interval);
+    }
+
+    return () => clearInterval(interval)
+
+  }, [playing])
+
+
 
   return (
     <div className="App">
       <Grid size={size} gridState={gridState} toggle={toggle}/>
-      <GameRun play={play}/>
+      <GameRun playing={playing} run={run}/>
+      <Display playing={playing} />
     </div>
   );
 }
