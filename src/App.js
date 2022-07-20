@@ -11,7 +11,7 @@ function App() {
 
 
   // generating 2d array that will then be used as the base state
-  const size = 30;
+  const size = 50;
   const squares = [];
   let idCount = 0;
   for (let i = size; i > 0; i--) {
@@ -129,7 +129,7 @@ function App() {
       interval = setInterval(() => {
         play();
         setIterations(previous => previous + 1);
-      }, 500)
+      }, 100)
     }
 
     else{
@@ -144,11 +144,14 @@ function App() {
 
   return (
     <div className="App">
-      <div className='grid--and--controls'>
+      <div className='left--side'>
         <Grid size={size} gridState={gridState} toggle={toggle}/>
+      </div>
+      <div className='right--side'>
+        <header>The React Game of Life</header>
+        <Display playing={playing} iterations={iterations} />
         <GameRun playing={playing} setPlaying={setPlaying} setGridState={setGridState} setIterations={setIterations} size={size} />
       </div>
-      <Display playing={playing} iterations={iterations} />
     </div>
   );
 }

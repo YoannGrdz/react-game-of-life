@@ -7,7 +7,7 @@ import React from "react";
 
 export default function Cell(props){
 
-    const bgColor = props.on ? "purple" : "lightgrey";
+    const bgColor = props.on ? "#8914B8" : "#DCD6F7";
     const style = {
       backgroundColor: bgColor
     };
