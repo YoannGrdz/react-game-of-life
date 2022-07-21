@@ -36,10 +36,10 @@ export default function GameRun(props){
 
     return(
         <div className="play--div">
-            <button onClick={run} className="play--button">
+            <button onClick={run} id="play--button">
             {props.playing ? "stop" : "play"}
             </button>
-            <button onClick={() => {setPlaying(false); reset()}} className="play--button">reset</button>
+            <button onClick={() => {setPlaying(false); reset()}} id="reset--button">reset</button>
         </div>
     );
 }

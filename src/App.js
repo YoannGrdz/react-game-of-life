@@ -148,9 +148,16 @@ function App() {
         <Grid size={size} gridState={gridState} toggle={toggle}/>
       </div>
       <div className='right--side'>
-        <header>The React Game of Life</header>
+        <header>The <span id='react'>React</span> Game of Life</header>
         <Display playing={playing} iterations={iterations} />
         <GameRun playing={playing} setPlaying={setPlaying} setGridState={setGridState} setIterations={setIterations} size={size} />
+        <p id='instructions'>Click on some cells to activate them, then click play to see what becomes of your configuration !</p>
+        <div id='rules'>
+          <h2>Rules of the game of life :</h2>
+          <p>- Any live cell surrounded by 2 or 3 live cells remains alive in the next iteration.</p>
+          <p>- Any dead cell surrounded by exactly 3 live cells becomes alive in the next iteration.</p>
+          <p>- Any other cell dies or remains dead (Because too many or too few live cells surrounding it).</p>
+        </div>
       </div>
     </div>
   );
