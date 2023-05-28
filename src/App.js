@@ -129,7 +129,7 @@ function App() {
       interval = setInterval(() => {
         play();
         setIterations(previous => previous + 1);
-      }, 100)
+      }, 200)
     }
 
     else{

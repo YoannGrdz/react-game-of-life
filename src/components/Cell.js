@@ -7,15 +7,9 @@ import React from "react";
 
 export default function Cell(props){
 
-    const bgColor = props.on ? "#8914B8" : "#DCD6F7";
-    const style = {
-      backgroundColor: bgColor
-    };
 
     return (
-      <div onClick={props.toggle} style={style} className="cell">
-        
-      </div>
+      <div onClick={props.toggle} className={props.on ? "cell cell--on" : "cell cell--off"}></div>
     );
 
   // display this inside the div for testing : {props.numX} : {props.numY}
